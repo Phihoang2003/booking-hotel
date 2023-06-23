@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
 import hotelRoute from "./routes/hotel.js";
 import userRoute from "./routes/users.js";
+import roomRoute from "./routes/room.js";
 dotenv.config();
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/hotel", hotelRoute);
 app.use("/api/user", userRoute);
+app.use("/api/room", roomRoute);
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong";
